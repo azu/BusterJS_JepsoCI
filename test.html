@@ -17,7 +17,7 @@
         });
         // finish all test
         buster.testRunner.on("suite:end", function (results) {
-            window.testsPassed = results.tests;// passed test count
+            window.testsPassed = results.ok;// result boolean
         });
     </script>
     <script src="./src/hello.js" type="text/javascript"></script>
