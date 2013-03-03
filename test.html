@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="http://cdn.busterjs.org/releases/latest/buster-test.css">
     <script type="text/javascript" src="http://cdn.busterjs.org/releases/latest/buster-test.js"></script>
 
+    <!-- jepso-ci -->
+    <script type="text/javascript">
+        window.completedTests = 0;
+        window.testsPassed = null;
+        // each test
+        buster.assertions.on("pass", function () {
+            window.testsPassed += 1;
+        });
+        // finish all test
+        buster.testRunner.on("suite:end", function (results) {
+            window.testsPassed = results.tests;// passed test count
+        });
+    </script>
     <script src="./src/hello.js" type="text/javascript"></script>
     <script src="./tests/async-test.js" type="text/javascript"></script>
     <script src="./tests/hello-test.js" type="text/javascript"></script>
