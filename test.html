@@ -13,7 +13,7 @@
         window.testsPassed = null;
         // each test
         buster.assertions.on("pass", function () {
-            window.testsPassed += 1;
+            window.completedTests += 1;
         });
         // finish all test
         buster.testRunner.on("suite:end", function (results) {
