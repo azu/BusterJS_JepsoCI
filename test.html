@@ -9,9 +9,12 @@
 
     <!-- jepso-ci -->
     <script type="text/javascript">
-        window.completedTests = 0;
-        window.testsPassed = null;
-        // each test
+        // start test
+        buster.testRunner.on("suite:start", function (results) {
+            window.completedTests = 0;
+            window.testsPassed = null;
+        });
+        // each passed test
         buster.assertions.on("pass", function () {
             window.completedTests += 1;
         });
@@ -20,6 +23,7 @@
             window.testsPassed = results.ok;// result boolean
         });
     </script>
+    <!--test source-->
     <script src="./src/hello.js" type="text/javascript"></script>
     <script src="./tests/async-test.js" type="text/javascript"></script>
     <script src="./tests/hello-test.js" type="text/javascript"></script>
