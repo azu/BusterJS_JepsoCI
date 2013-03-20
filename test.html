@@ -18,6 +18,10 @@
         buster.assertions.on("pass", function () {
             window.completedTests += 1;
         });
+        // each failure test
+        buster.assertions.on("failure", function (err) {
+            window.testsPassed = false;
+        });
         // finish all test
         buster.testRunner.on("suite:end", function (results) {
             window.testsPassed = results.ok;// result boolean
